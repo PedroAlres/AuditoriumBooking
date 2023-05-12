@@ -1,37 +1,26 @@
 <?php
-  include 'config/database.php';
-  if (isset($_POST["btnlogin"])) {
-    $txtusername = $_POST['username'];
-    $txtpassword = md5($_POST['password']);
-    $cek = mysqli_query($konek, "SELECT * FROM administ where username='" . $_POST['username'] . "' AND password='" . md5($_POST['password']) . "'");
-    $hasil = mysqli_fetch_array($cek);
+include 'config/database.php';
+if (isset($_POST["btnlogin"])) {
+  $txtusername = $_POST['username'];
+  $txtpassword = md5($_POST['password']);
+  $cek = mysqli_query($kon, "SELECT * FROM administ WHERE username = '$txtusername' AND password = '$txtpassword'");
+  if (!$cek) {
+    die("Query failed: " . mysqli_error($kon));
+  }
+  $hasil = mysqli_fetch_array($cek);
+  if (!empty($hasil)) {
     $count = mysqli_num_rows($cek);
-
     $nama1 = $hasil['nama'];
+
     if ($count > 0) {
       session_start();
       $_SESSION['nama'] = $nama1;
       header("location:admin/index.php?halaman=kategoria");
-    } else {
-      // echo "";
+      exit;
     }
+  }
+  // Handle invalid login here
+  // For example, display an error message
+  echo "Invalid username or password";
 }
-
 ?>
-
-    <!-- <div class="pages_agile_info_w3l page_error">
-    <div class="over_lay_agile_pages_w3ls error">
-        <div class="registration error">
-      <br><br><br>
-      <h1 align="center">Oops! Login Lalos</h1>
-      <br><br><br><br><br><br><br><br><br>
-      <h1 align="center"><a href="index.php">Koko fali!</a>
-        <h1>
-    </div> -->
-
-    //Redirect ke halaman admin
-    // header("Location:admin/index.php?halaman=kategoria");
-
-
-  </div>
-</div>

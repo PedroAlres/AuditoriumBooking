@@ -47,17 +47,6 @@
                 <?php
                 $judul="BEMVINDO";   
                 include 'config/database.php';
-                if (isset($_GET['id'])) {
-                    $sql="select * from artikel where status=1 and id_artikel=".$_GET['id']."";
-                    $hasil=mysqli_query($kon,$sql);
-                    $data = mysqli_fetch_array($hasil);
-                    $judul=$data['judul_artikel'];  
-                }else if (isset($_GET['kategori'])){
-                    $sql="select * from kategori where id_kategori=".$_GET['kategori']."";
-                    $hasil=mysqli_query($kon,$sql);
-                    $data = mysqli_fetch_array($hasil);
-                    $judul=$data['nama_kategori'];  
-                }
                 ?>
 
                 <h1><?php echo $judul;?></h1>
@@ -72,7 +61,7 @@
                             <div class="row">
                         
                                 <div class="col-sm-5">
-                                    <form action="index.php?halaman=login" method="post">
+                                    <form action="login.php" method="post">
                                         <div class="form-group">
                                             <label for="username">Username:</label>
                                             <input type="text" class="form-control" name="username" placeholder="Hatama Username">
@@ -91,7 +80,6 @@
                 </div>
             </div> 
         </section>
-
 
         <footer id="footer">
             <div class="container py-4">

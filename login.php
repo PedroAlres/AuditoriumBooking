@@ -19,8 +19,10 @@ if (isset($_POST["btnlogin"])) {
       exit;
     }
   }
+
   // Handle invalid login here
   // For example, display an error message
   echo "Invalid username or password";
+  
 }
 ?>

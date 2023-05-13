@@ -14,10 +14,10 @@
     <body>
         <?php
             include 'config/database.php';
-            $ambil_kategori = mysqli_query ($kon,"select * from profil limit 1");
-            $row = mysqli_fetch_assoc($ambil_kategori); 
-            $nama_website = $row['nama_website'];
-            $copy_right = $row['nama_website'];
+            $ambil_kategori = mysqli_query ($kon,"select * from profile limit 1");
+            $row = mysqli_fetch_assoc($ambil_kategori);
+            $nama_website = $row['web_name'];
+            $copy_right = $row['web_name'];
         ?>
 
         <header id="header" class="d-flex align-items-center">

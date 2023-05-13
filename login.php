@@ -3,7 +3,7 @@ include 'config/database.php';
 if (isset($_POST["btnlogin"])) {
   $txtusername = $_POST['username'];
   $txtpassword = md5($_POST['password']);
-  $cek = mysqli_query($kon, "SELECT * FROM administ WHERE username = '$txtusername' AND password = '$txtpassword'");
+  $cek = mysqli_query($kon, "SELECT * FROM administrator WHERE username = '$txtusername' AND password = '$txtpassword'");
   if (!$cek) {
     die("Query failed: " . mysqli_error($kon));
   }

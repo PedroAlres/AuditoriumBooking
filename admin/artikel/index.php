@@ -10,8 +10,7 @@
                 <tr>
                     <th>No</th>
                     <th>Date</th>
-                    <th>Start</th>
-                    <th>End</th>
+                    <th>Time</th>
                     <th>Description</th>
                     <th>Status</th>
                     <th>Asaun</th>
@@ -21,11 +20,12 @@
             <tbody>
                 <?php
                     // include database
-                    include '../config/database.php';
+                    include "../config/database.php";
 
                     // perintah sql untuk menampilkan daftar artikel
-                    $id_kategori=$_GET['user'];
-                    $sql="select * from book inner join user on user.id_user=book.id_user where user.id_user='$id_kategori' order by id_event desc";
+                    $id_user = $_GET['kategori'];
+
+                    $sql="select * from book inner join user on user.id_user=book.id_user where user.id_user='$id_user' order by id_event desc";
                     $hasil=mysqli_query($kon,$sql);
                     $no=0;
 
@@ -36,14 +36,13 @@
 
                 <tr>
                     <td><?php echo $no; ?></td>
-                    <td><?php echo date("d-m-Y",strtotime($data['date'])); ?></td>
-                    <td><?php echo  $data['username'];  ?></td>
-                    <td><?php echo  $data['username'];  ?></td>
+                    <td><?php echo date("d/m/Y",strtotime($data['date'])); ?></td>
+                    <td><?php echo  date("h:i:s A", strtotime($data['time']));  ?></td>
                     <td><?php echo  $data['description'];  ?></td>
-                    <td><?php echo $data['status'] == 1 ? "<span class='text-success'>Publish</span>" : "<span class='text-warning'>Konsep</span>"; ?> </td>
+                    <td><?php echo $data['status'] == "accept" ? "<span class='text-success'>Publish</span>" : "<span class='text-warning'>Konsep</span>"; ?> </td>
                     <td>   
-                        <button class="btn-edit-artikel btn btn-warning btn-circle" id_artikel="<?php echo $data['id_artikel']; ?>" kode_artikel="<?php echo $data['kode_artikel']; ?>" data-toggle="tooltip" title="Edit artikel" data-placement="top">Edit</button> 
-                        <button class="btn-hapus-artikel btn btn-danger btn-circle"  id_artikel="<?php echo $data['id_artikel']; ?>"  gambar="<?php echo $data['gambar']; ?>"  data-toggle="tooltip" title="Hapus artikel" data-placement="top">Apaga</button>
+                        <!-- <button class="btn-edit-artikel btn btn-warning btn-circle" id_artikel="<?php echo $data['id_artikel']; ?>" kode_artikel="<?php echo $data['kode_artikel']; ?>" data-toggle="tooltip" title="Edit artikel" data-placement="top">Edit</button>  -->
+                        <!-- <button class="btn-hapus-artikel btn btn-danger btn-circle"  id_artikel="<?php echo $data['id_artikel']; ?>"  gambar="<?php echo $data['gambar']; ?>"  data-toggle="tooltip" title="Hapus artikel" data-placement="top">Apaga</button> -->
                     </td>
                 </tr>
 

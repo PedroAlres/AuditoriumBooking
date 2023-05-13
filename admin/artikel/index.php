@@ -13,6 +13,7 @@
                     <th>Start</th>
                     <th>End</th>
                     <th>Description</th>
+                    <th>Status</th>
                     <th>Asaun</th>
                 </tr>
             </thead>
@@ -24,7 +25,7 @@
 
                     // perintah sql untuk menampilkan daftar artikel
                     $id_kategori=$_GET['user'];
-                    $sql="select * from artikel inner join kategori on kategori.id_kategori=artikel.id_kategori where kategori.id_kategori='$id_kategori' order by id_artikel desc";
+                    $sql="select * from book inner join user on user.id_user=book.id_user where user.id_user='$id_kategori' order by id_event desc";
                     $hasil=mysqli_query($kon,$sql);
                     $no=0;
 
@@ -35,9 +36,10 @@
 
                 <tr>
                     <td><?php echo $no; ?></td>
-                    <td><?php echo $data['judul_artikel']; ?></td>
-                    <td><?php echo  $data['nama_kategori'];  ?></td>
-                    <td><?php echo date("d-m-Y",strtotime($data['tanggal'])); ?></td>
+                    <td><?php echo date("d-m-Y",strtotime($data['date'])); ?></td>
+                    <td><?php echo  $data['username'];  ?></td>
+                    <td><?php echo  $data['username'];  ?></td>
+                    <td><?php echo  $data['description'];  ?></td>
                     <td><?php echo $data['status'] == 1 ? "<span class='text-success'>Publish</span>" : "<span class='text-warning'>Konsep</span>"; ?> </td>
                     <td>   
                         <button class="btn-edit-artikel btn btn-warning btn-circle" id_artikel="<?php echo $data['id_artikel']; ?>" kode_artikel="<?php echo $data['kode_artikel']; ?>" data-toggle="tooltip" title="Edit artikel" data-placement="top">Edit</button> 

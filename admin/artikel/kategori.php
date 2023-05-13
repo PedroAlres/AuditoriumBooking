@@ -13,7 +13,7 @@
                 include '../config/database.php';
                 
                 // perintah sql untuk menampilkan daftar pengguna yang berelasi dengan tabel kategori pengguna
-                $sql="select username from user inner join event where user.id_user=event.id_user";
+                $sql="select * from user";
                 $hasil=mysqli_query($kon,$sql);
                 $no=0;
 
@@ -23,11 +23,11 @@
             ?>
 
             <div class="card bg-basic" style="width: 12rem;">
-                <a href="index.php?halaman=artikel&kategori=<?php echo $data['id_kategori'];?>"></a>
+                <a href="index.php?halaman=artikel&kategori=<?php echo $data['id_user'];?>"></a>
                 
                 <div class="card-body text-center">
-                    <a href="index.php?halaman=artikel&kategori=<?php echo $data['id_kategori'];?>"><h5 class="card-title"><?php echo $data['nama_kategori'];?></h5></a>
-                    <a href="#" class="hapus_kategori" id_kategori="<?php echo $data['id_kategori']; ?>"><h6 class="text-danger">Apaga</h6></a>
+                    <a href="index.php?halaman=artikel&kategori=<?php echo $data['id_user'];?>"> <h5 class="card-title"><?php echo $data['username'];?></h5> </a>
+                    <a href="#" class="hapus_kategori" id_kategori="<?php echo $data['id_user']; ?>"> <h6 class="text-danger">Apaga</h6> </a>
                 </div>
             </div>
 

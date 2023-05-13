@@ -17,9 +17,9 @@
     }
 
     include '../config/database.php';
-    $ambil_kategori = mysqli_query ($kon,"select * from profil limit 1");
+    $ambil_kategori = mysqli_query ($kon,"select * from profile limit 1");
     $row = mysqli_fetch_assoc($ambil_kategori); 
-    $nama_website = $row['nama_website'];
+    $nama_website = $row['web_name'];
     ?>
             <div class="form-group">
                 <label for="usr">Naran Website:</label>

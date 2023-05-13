@@ -1,10 +1,3 @@
-<?php 
-  session_start();
-  if (!$_SESSION["id_pengguna"]){
-        header('Location:../index.php?halaman=login&pesan=login_dulu');
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,10 +14,10 @@
 <body>
     <?php
         include '../config/database.php';
-        $ambil_kategori = mysqli_query ($kon,"select * from profil limit 1");
+        $ambil_kategori = mysqli_query ($kon,"select * from profile limit 1");
         $row = mysqli_fetch_assoc($ambil_kategori); 
-        $nama_website = $row['nama_website'];
-        $copy_right = $row['nama_website'];
+        $nama_website = $row['web_name'];
+        $copy_right = $row['web_name'];
     ?>
 
     <header id="header" class="d-flex align-items-center">
@@ -32,10 +25,6 @@
             <h1 class="logo"><a href="../index.php"><span><?php echo $nama_website;?></span></a></h1>
 
             <nav id="navbar" class="navbar">
-                <ul class="navbar-nav  ml-auto">
-                    <li>Login hanesan:<br><?php echo $_SESSION["nama_pengguna"]; ?></li>
-                </ul>
-
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
         </div>

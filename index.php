@@ -61,14 +61,14 @@
                             <div class="row">
                         
                                 <div class="col-sm-5">
-                                    <form action="login.php" method="post">
+                                    <form action="login.php" method="POST">
                                         <div class="form-group">
                                             <label for="username">Username:</label>
-                                            <input type="text" class="form-control" name="username" placeholder="Hatama Username">
+                                            <input id="username" type="text" class="form-control" name="username" placeholder="Hatama Username">
                                         </div>
                                         <div class="form-group">
                                             <label for="password">Password:</label>
-                                            <input type="password" name="password" class="form-control" placeholder="Hatama Password">
+                                            <input id="password" type="password" name="password" class="form-control" placeholder="Hatama Password">
                                         </div>
                                         <button type="submit" name="btnlogin" class="btn btn-primary">Login</button>
                                     </form>

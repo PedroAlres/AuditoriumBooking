@@ -1,12 +1,15 @@
 <?php
 include 'config/database.php';
-if (isset($_POST["btnlogin"])) {
+
+if (isset($_POST['btnlogin'])) {
   $txtusername = $_POST['username'];
   $txtpassword = md5($_POST['password']);
   $cek = mysqli_query($kon, "SELECT * FROM administrator WHERE username = '$txtusername' AND password = '$txtpassword'");
+
   if (!$cek) {
     die("Query failed: " . mysqli_error($kon));
   }
+
   $hasil = mysqli_fetch_array($cek);
   if (!empty($hasil)) {
     $count = mysqli_num_rows($cek);

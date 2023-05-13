@@ -36,8 +36,7 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>Naran</th>
-                    <th>Email</th>
+                    <th>Username</th>
                     <th>Status</th>
                     <th>Asaun</th>
                 </tr>
@@ -47,7 +46,7 @@
                         // include database
                         include '../config/database.php';
                         // perintah sql untuk menampilkan daftar pengguna yang berelasi dengan tabel kategori pengguna
-                        $sql="select * from pengguna order by id_pengguna desc";
+                        $sql="select * from administrator";
                         $hasil=mysqli_query($kon,$sql);
                         $no=0;
                         //Menampilkan data dengan perulangan while
@@ -56,8 +55,7 @@
                     ?>
                     <tr>
                         <td><?php echo $no; ?></td>
-                        <td><?php echo $data['nama_pengguna']; ?></td>
-                        <td><?php echo $data['email']; ?></td>
+                        <td><?php echo $data['username']; ?></td>
                         <td><?php echo $data['status'] == 1 ? 'Aktif' : 'Tidak Aktif'; ?></td>
                         <td>
                             <button class="btn-edit btn btn-warning btn-circle" id_pengguna="<?php echo $data['id_pengguna']; ?>" kode_pengguna="<?php echo $data['kode_pengguna']; ?>" >Edit</button>

@@ -23,7 +23,7 @@
                     include '../config/database.php';
 
                     // perintah sql untuk menampilkan daftar artikel
-                    $id_kategori=$_GET['kategori'];
+                    $id_kategori=$_GET['user'];
                     $sql="select * from artikel inner join kategori on kategori.id_kategori=artikel.id_kategori where kategori.id_kategori='$id_kategori' order by id_artikel desc";
                     $hasil=mysqli_query($kon,$sql);
                     $no=0;

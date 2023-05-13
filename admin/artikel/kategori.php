@@ -13,7 +13,7 @@
                 include '../config/database.php';
                 
                 // perintah sql untuk menampilkan daftar pengguna yang berelasi dengan tabel kategori pengguna
-                $sql="select * from kategori";
+                $sql="select username from user inner join event where user.id_user=event.id_user";
                 $hasil=mysqli_query($kon,$sql);
                 $no=0;
 
